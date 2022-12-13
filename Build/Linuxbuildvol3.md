@@ -29,32 +29,28 @@ Ví dụ:          D:\volatility3\volatility3\symbols
 
 ## Bước 4: Kiểm tra kernel linux từ RAM và setup môi trường
 
-Dùng plugin banners.Banners trong Volatility3 để kiểm tra:
-- VD có file Ram tên memory.raw,  dùng câu lệnh kiểm tra kernel:
-  python .\vol.py -f .\memory.raw banners.Banners
+- Dùng plugin banners.Banners trong Volatility3 để kiểm tra VD có file Ram tên memory.raw, dùng câu lệnh kiểm tra kernel:
+ ` python .\vol.py -f .\memory.raw banners.Banners`
 
  ![image](https://user-images.githubusercontent.com/42565778/207277997-ab81d6ac-a2b7-436e-8fda-018d8d7c38d9.png)
  
 
-B2: Vào link [ddebs.ubuntu](http://ddebs.ubuntu.com/ubuntu/pool/main/l/linux/) để tìm và tải phiên bản nhân của Linux, sau đó tải phiên bản có đuôi amd64
+ - Vào link [ddebs.ubuntu](http://ddebs.ubuntu.com/ubuntu/pool/main/l/linux/) để tìm và tải phiên bản nhân của Linux, sau đó tải phiên bản có đuôi amd64
 
 ![image](https://user-images.githubusercontent.com/42565778/207280394-139b8ea8-e7d6-49a7-b1b1-0f0deb31c31f.png)
 
  
-B4: Chuyển file kernel vừa tải vào một máy ảo cài kali linux
- 
+ - Khởi tạo profile với dpkg để trích xuất file kelnel vừa tải:  `Sudo dpkg –x [tên file kernel] /[thự đựng trích xuất]` 
 
-B5: Tạo profile 
-- Dùng câu lệnh dpkg để trích xuất file kelnel vừa tải: 
-Sudo dpkg –x [tên file kernel] /[thự đựng trích xuất]
-Ví dụ :
-sudo dpkg -x linux-image-unsigned-4.15.0-112-generic-dbgsym_4.15.0-112.113_amd64.ddeb /linux
+`sudo dpkg -x linux-image-unsigned-4.15.0-112-generic-dbgsym_4.15.0-112.113_amd64.ddeb ./`
 
-- Trích xuất xong sẽ được thư mục tên usr
+- Trích xuất xong sẽ được folder `usr`
  
-- Vào theo đường dẫn linux/usr/lib/debug/boot/ sẽ thấy file vmlinux-5.15.0-25-generic:
- 
+ ![image](https://user-images.githubusercontent.com/42565778/207284885-a46cb628-a5e4-4509-a65d-bb58a431659c.png)
 
+- Vào theo đường dẫn `/usr/lib/debug/boot/` sẽ thấy file vmlinux-5.15.0-25-generic:
+
+![image](https://user-images.githubusercontent.com/42565778/207286107-43717613-0e9d-4db0-9f37-2360b35f8677.png)
 
 
 B6: Cài Dwarf2json trên kali linux
