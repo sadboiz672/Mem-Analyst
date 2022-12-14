@@ -1,6 +1,12 @@
-Cài profile linux cho Volatility 3
+<h1 align="center">
+ 
+  <br>
+  Cài profile linux cho Volatility 3
+  <br>
+</h1>
 
-## Bước 1: cài Volatility 3
+
+## Bước 1: Install Volatility 3
 
 - Cài đặt theo hướng dẫn từ **[Github](https://github.com/volatilityfoundation/volatility3)**
  ![image](https://user-images.githubusercontent.com/42565778/207274968-5a7213bc-1d4e-4a59-8eb6-2c47f0243984.png)
