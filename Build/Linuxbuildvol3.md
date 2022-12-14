@@ -50,41 +50,31 @@ Ví dụ:          D:\volatility3\volatility3\symbols
 
 - Vào theo đường dẫn `/usr/lib/debug/boot/` sẽ thấy file vmlinux-5.15.0-25-generic:
 
-![image](https://user-images.githubusercontent.com/42565778/207286107-43717613-0e9d-4db0-9f37-2360b35f8677.png)
+![image](https://user-images.githubusercontent.com/42565778/207522125-46fe72ad-781a-4421-a3d4-ee71f81b4cd1.png)
 
 
-B6: Cài Dwarf2json trên kali linux
-- sudo apt update
-- sudo apt install dwarf2json
-B7: Tạo profile cho kernel Linux Version 5.15.0-25-genneric
-- Vào thư mục boot mở terminal 
-  cd 
+Cài Dwarf2json trên kali linux: `sudo apt install dwarf2json`
+![image](https://user-images.githubusercontent.com/42565778/207522239-6e04858a-f016-46e2-aa1e-fb6257653136.png)
 
-* tối thiểu 4gb ram
-- Dùng câu lệnh để tạo profile :
-dwarf2json linux --elf [tên file kernel]> [tên file đầu ra].json
-Ví dụ tên file ở đây là vmlinux-5.15.0-25-generic thì câu lệnh như sau:   
-dwarf2json linux --elf vmlinux-5.15.0-25-generic > vmlinux-5.15.0-25-generic.json
-Ta sẽ thu được một file .json như trong ảnh, đây là file profile
- 
-	Ảnh: Thu được file .json
+Tạo profile cho kernel Linux Version 5.15.0-25-genneric `* tối thiểu 4gb ram, 4 luồng`
+- Dùng câu lệnh để tạo profile : `dwarf2json linux --elf [tên file kernel]> [tên file đầu ra].json`
+Ví dụ tên file ở đây là vmlinux-5.15.0-25-generic thì câu lệnh như sau: 
 
-B8: Copy hoặc chuyển file .json này vào thư mục symbols trong Volatility3
- 
+`dwarf2json linux --elf vmlinux-5.15.0-25-generic > vmlinux-5.15.0-25-generic.json`
+
+![image](https://user-images.githubusercontent.com/42565778/207523742-9f7fe812-cf04-49fd-86d3-82771c682928.png)
+
+
+Copy hoặc chuyển file .json này vào thư mục symbols trong Volatility3
+
+ ![image](https://user-images.githubusercontent.com/42565778/207523863-14591dd4-5716-4266-8da9-8e7baaac8c5b.png)
+
 
 Tạo và thêm profile linux thành công.
 
-
-Kiểm tra các plugin của linux: 
+![image](https://user-images.githubusercontent.com/42565778/207524591-43f18ebf-dd32-4247-bb6a-379f2f114e02.png)
  
 
-Lần đầu chạy sau thi thêm profile sẽ mất một chút thời gian để volatility3 update
-
-  
-
-Kết quả : 
-  
- 
-
-Tùy theo RAM linux được thu thập ở bản kernel nào thì phải tạo profile theo kernel đấy. Ram máy MAC tương tự.
-
+Lần đầu chạy sau thi thêm profile sẽ mất một chút thời gian để volatility3 update, cách này khá nhanh nếu có thể dùng vol3, nhưng một số module của vol3 cho linux đang trong thời gian buiild vì thế sẽ có nhiều hạn chế. Cho nên nếu có ý định sử dụng cách build này cần cân nhắc và lưu ý.
+                                                                                 
+`Author: dieupx & Hoabibo`
